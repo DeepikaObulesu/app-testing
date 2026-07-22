@@ -1,0 +1,7 @@
+reports/
+*.csv
+!reports/README.md
+android/app/build/
+android/.idea/
+android/.kotlin/
+*.iml
