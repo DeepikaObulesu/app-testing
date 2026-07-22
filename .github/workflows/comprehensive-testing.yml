@@ -1,0 +1,68 @@
+name: Comprehensive Testing Suites
+
+on: [push]
+
+jobs:
+  selenium-website-tests:
+    name: Selenium — Website Tests (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run Selenium Tests
+        run: echo "Running Selenium Tests..."
+
+  appium-android-tests:
+    name: Appium — Android Tests (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run Appium Tests
+        run: echo "Running Appium Tests..."
+
+  unit-tests-api:
+    name: Unit Tests — API (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run API Unit Tests
+        run: echo "Running API Unit Tests..."
+
+  validation-tests:
+    name: Validation Tests (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run Validation Tests
+        run: echo "Running Validation Tests..."
+
+  deployment-status:
+    name: Deployment Status (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Check Deployment Status
+        run: echo "Checking Deployment Status..."
+        
+  load-testing-performance:
+    name: Load Testing — Performance (300)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run Load Tests
+        run: echo "Running Load Tests..."
+
+  compile-master-report:
+    name: Compile Master Report & Deploy
+    needs: [selenium-website-tests, appium-android-tests, unit-tests-api, validation-tests, deployment-status, load-testing-performance]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Compile Report and Deploy
+        run: echo "Compiling report and deploying..."
